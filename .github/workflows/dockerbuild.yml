@@ -22,12 +22,16 @@ jobs:
         include:
           - dockerfile: ./udagram-api-feed/Dockerfile
             image: fehintoluwa/udagram-api-feed
+            context: ./udagram-api-feed
           - dockerfile: ./udagram-api-user/Dockerfile
             image: fehintoluwa/udagram-api-user
+            context: ./udagram-api-user
           - dockerfile: ./udagram-frontend/Dockerfile
             image: fehintoluwa/udagram-frontend
+            context: ./udagram-frontend
           - dockerfile: ./udagram-reverseproxy/Dockerfile
             image: fehintoluwa/reverseproxy
+            context: ./udagram-reverseproxy
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -47,7 +51,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: .
+          context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
