@@ -26,7 +26,7 @@ jobs:
             image: fehintoluwa/udagram-api-user
           - dockerfile: ./udagram-frontend/Dockerfile
             image: fehintoluwa/udagram-frontend
-          - dockerfile: ../udagram-reverseproxy/Dockerfile
+          - dockerfile: ./udagram-reverseproxy/Dockerfile
             image: fehintoluwa/reverseproxy
     steps:
       - name: Check out the repo
