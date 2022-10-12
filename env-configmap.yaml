@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: udagram-env
+data:
+  POSTGRES_HOST: udagram2.cn5olkcps5bu.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: postgres
+  AWS_BUCKET: udagram-ms-558322244508
+  AWS_REGION: us-east-1
+  AWS_PROFILE: alx-admin-new
+  JWT_SECRET: testing
+  URL: http://localhost:8100
